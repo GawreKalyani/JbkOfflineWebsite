@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="19" passed="19">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="3179" started-at="2021-05-16T06:27:46Z" finished-at="2021-05-16T06:27:50Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="3179" started-at="2021-05-16T06:27:46Z" finished-at="2021-05-16T06:27:50Z">
+      <class name="com.testcases.DownloadTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.testcases.DownloadTest@1794d431]" name="setup" is-config="true" duration-ms="3708" started-at="2021-05-16T11:57:43Z" finished-at="2021-05-16T11:57:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="verifyUrl()[pri:1, instance:com.testcases.DownloadTest@1794d431]" name="verifyUrl" duration-ms="8" started-at="2021-05-16T11:57:46Z" finished-at="2021-05-16T11:57:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUrl -->
+        <test-method status="PASS" signature="verifyTitle()[pri:2, instance:com.testcases.DownloadTest@1794d431]" name="verifyTitle" duration-ms="16" started-at="2021-05-16T11:57:46Z" finished-at="2021-05-16T11:57:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitle -->
+        <test-method status="PASS" signature="verifyHeading()[pri:4, instance:com.testcases.DownloadTest@1794d431]" name="verifyHeading" duration-ms="41" started-at="2021-05-16T11:57:46Z" finished-at="2021-05-16T11:57:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHeading -->
+        <test-method status="PASS" signature="verifySubHeading()[pri:5, instance:com.testcases.DownloadTest@1794d431]" name="verifySubHeading" duration-ms="40" started-at="2021-05-16T11:57:46Z" finished-at="2021-05-16T11:57:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySubHeading -->
+        <test-method status="PASS" signature="verifyFooter()[pri:6, instance:com.testcases.DownloadTest@1794d431]" name="verifyFooter" duration-ms="35" started-at="2021-05-16T11:57:47Z" finished-at="2021-05-16T11:57:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyFooter -->
+        <test-method status="PASS" signature="headingOfTable()[pri:7, instance:com.testcases.DownloadTest@1794d431]" name="headingOfTable" duration-ms="771" started-at="2021-05-16T11:57:47Z" finished-at="2021-05-16T11:57:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- headingOfTable -->
+        <test-method status="PASS" signature="checkNavigation()[pri:8, instance:com.testcases.DownloadTest@1794d431]" name="checkNavigation" duration-ms="100" started-at="2021-05-16T11:57:47Z" finished-at="2021-05-16T11:57:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkNavigation -->
+        <test-method status="PASS" signature="checkRightCornerHeading()[pri:9, instance:com.testcases.DownloadTest@1794d431]" name="checkRightCornerHeading" duration-ms="31" started-at="2021-05-16T11:57:47Z" finished-at="2021-05-16T11:57:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkRightCornerHeading -->
+        <test-method status="PASS" signature="checkLeftCornerHeading()[pri:10, instance:com.testcases.DownloadTest@1794d431]" name="checkLeftCornerHeading" duration-ms="31" started-at="2021-05-16T11:57:47Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkLeftCornerHeading -->
+        <test-method status="PASS" signature="verifyUserStatus()[pri:11, instance:com.testcases.DownloadTest@1794d431]" name="verifyUserStatus" duration-ms="31" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUserStatus -->
+        <test-method status="PASS" signature="checkImage()[pri:12, instance:com.testcases.DownloadTest@1794d431]" name="checkImage" duration-ms="70" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkImage -->
+        <test-method status="PASS" signature="leftCornerHeading()[pri:13, instance:com.testcases.DownloadTest@1794d431]" name="leftCornerHeading" duration-ms="53" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- leftCornerHeading -->
+        <test-method status="PASS" signature="verifyNmsFor32bitBtn()[pri:14, instance:com.testcases.DownloadTest@1794d431]" name="verifyNmsFor32bitBtn" duration-ms="216" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNmsFor32bitBtn -->
+        <test-method status="PASS" signature="verifyNmsFor64bitBtn()[pri:15, instance:com.testcases.DownloadTest@1794d431]" name="verifyNmsFor64bitBtn" duration-ms="185" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNmsFor64bitBtn -->
+        <test-method status="PASS" signature="verifyNmsForCommanBtnAndOtherBtn()[pri:16, instance:com.testcases.DownloadTest@1794d431]" name="verifyNmsForCommanBtnAndOtherBtn" duration-ms="232" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNmsForCommanBtnAndOtherBtn -->
+        <test-method status="PASS" signature="verifyNmsForCommanColumnBlankEntry()[pri:17, instance:com.testcases.DownloadTest@1794d431]" name="verifyNmsForCommanColumnBlankEntry" duration-ms="138" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyNmsForCommanColumnBlankEntry -->
+        <test-method status="PASS" signature="verifyVendorForVersion76()[pri:18, instance:com.testcases.DownloadTest@1794d431]" name="verifyVendorForVersion76" duration-ms="162" started-at="2021-05-16T11:57:48Z" finished-at="2021-05-16T11:57:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyVendorForVersion76 -->
+        <test-method status="PASS" signature="verifyVendorForOfficialWebsiteColumn()[pri:19, instance:com.testcases.DownloadTest@1794d431]" name="verifyVendorForOfficialWebsiteColumn" duration-ms="254" started-at="2021-05-16T11:57:49Z" finished-at="2021-05-16T11:57:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyVendorForOfficialWebsiteColumn -->
+        <test-method status="PASS" signature="verifyComplete_DownloadsTable()[pri:20, instance:com.testcases.DownloadTest@1794d431]" name="verifyComplete_DownloadsTable" duration-ms="717" started-at="2021-05-16T11:57:49Z" finished-at="2021-05-16T11:57:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyComplete_DownloadsTable -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.testcases.DownloadTest@1794d431]" name="tearDown" is-config="true" duration-ms="101" started-at="2021-05-16T11:57:50Z" finished-at="2021-05-16T11:57:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.testcases.DownloadTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
