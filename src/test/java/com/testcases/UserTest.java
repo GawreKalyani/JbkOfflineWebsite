@@ -18,7 +18,7 @@ public class UserTest extends Testbase {
 
 	@BeforeSuite
 	public void setup() throws Exception {
-		driver = initialization();
+		driver = initialization("config.properties");
 		lp = new LoginPage(driver);
 		lp.uname.sendKeys("kiran@gmail.com");
 		lp.pass.sendKeys("123456");
@@ -81,7 +81,6 @@ public class UserTest extends Testbase {
 	}
 	@Test(priority=10)
 	public void checkNavigation() {
-		
 		Assert.assertTrue(up.getNavigator());
 	}
 

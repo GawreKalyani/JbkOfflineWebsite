@@ -20,7 +20,7 @@ public class OperatorTest extends Testbase {
 
 	@BeforeSuite
 	public void setup() throws Exception {
-		driver = initialization();
+		driver = initialization("config.properties");
 		lp = new LoginPage(driver);
 		lp.uname.sendKeys("kiran@gmail.com");
 		lp.pass.sendKeys("123456");
@@ -74,7 +74,6 @@ public class OperatorTest extends Testbase {
 	
 	@Test(priority=8)
 	public void checkNavigation() {
-		
 		Assert.assertTrue(op.getNavigator());
 	}
 

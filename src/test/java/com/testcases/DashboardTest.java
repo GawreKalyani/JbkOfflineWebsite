@@ -17,7 +17,7 @@ public class DashboardTest extends Testbase {
 	
 	@BeforeSuite
 	public void setup() throws Exception {
-		driver = initialization();
+		driver = initialization("config.properties");
 		lp=new LoginPage(driver);
 		lp.uname.sendKeys("kiran@gmail.com");
 		lp.pass.sendKeys("123456");
@@ -84,7 +84,7 @@ public class DashboardTest extends Testbase {
 	}
 
 	@Test(priority=13)
-	public void verifyCoursesMoreinfo() 
+	public void verifyCoursesMoreinfo()throws Exception 
 	{
 		Assert.assertTrue(dp.getMoreInfoLinks());
 	}
@@ -113,7 +113,7 @@ public class DashboardTest extends Testbase {
 		Assert.assertTrue(dp.getAllWindow());	
 	}
 	@Test (priority=20)
-	public void verifyJBK_Link () throws InterruptedException 
+	public void verifyJBK_Link () throws Exception 
 	{
 		Assert.assertTrue(dp.jbk_Link());
 	}

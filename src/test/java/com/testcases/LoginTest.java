@@ -5,20 +5,24 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.base.Testbase;
+import com.pages.DashboardPage;
 import com.pages.LoginPage;
+
+
 import org.testng.Assert;
 
 
 public class LoginTest extends Testbase {
 	WebDriver driver;
 	public static LoginPage lp=null;
-	
+	DashboardPage dp=null;
 	
 	@BeforeSuite
 	public void setup() throws Exception{
-		driver=initialization();
+		log.info("loginPage is launched");
+		driver=initialization("config.properties");
 		lp=new LoginPage(driver);
-	
+		dp=new DashboardPage(driver);
 		}
 	
 	@AfterSuite
@@ -61,7 +65,7 @@ public class LoginTest extends Testbase {
 	public void checkLoginSuccessfullyDone()
 	{	
 		Assert.assertTrue(lp.loginSuccessfully());
-	
+		dp.logoutBtn.click();
 	}
 	@Test(priority=9)
 	public void verifyBlankEmailPasswordErrorMsg()
@@ -72,7 +76,6 @@ public class LoginTest extends Testbase {
 	@Test(priority=10)
 	public void verifyInvalidLoginEntryErrorMessage()
 	{
-		
 		Assert.assertTrue(lp.getErrorMsgForInvalidEntry());
 	}
 	

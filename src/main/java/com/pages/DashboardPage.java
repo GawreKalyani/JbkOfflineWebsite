@@ -1,21 +1,15 @@
 package com.pages;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-
+import com.base.Testbase;
 import com.objectRepositary.DashboardPgObjectRepositary;
+import com.utility.ExcelUtility;
+import com.utility.Utility;
 
 public class DashboardPage extends DashboardPgObjectRepositary {
 	WebDriver driver;
@@ -31,12 +25,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actualUrl.equals(expectedUrl))
 		{
-			System.out.println("Url is matched");
+			Testbase.log.info("Url is matched");
 			return true ;
 		}
 		else
 		{
-			System.out.println("Url is not matched");
+			Testbase.log.info("Url is not matched");
 			return false ;
 		}
 	}
@@ -47,12 +41,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actualTitle.equals(expectedTitle))
 		{
-			System.out.println("Title is matched");
+			Testbase.log.info("Title is matched");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Title not matched");
+			Testbase.log.info("Title not matched");
 			return false ;
 		}		
 	}
@@ -60,36 +54,35 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	{	
 		if(image.isDisplayed()==true)
 		{
-			System.out.println("User Image is displayed");
+			Testbase.log.info("User Image is displayed");
 			return true ;
 		}
 		else
 		{
-			System.out.println("User Image is not displayed");
+			Testbase.log.info("User Image is not displayed");
 			return false ;
 		}
 	}
 	public boolean cornerHeading() 
 	{ 	
-		String actCornerHeading = heading1.getText();
+		String actCornerHeading = Utility.stringText(heading1);
 		String expCornerHeading = "Java By Kiran" ;
 		
 		if(actCornerHeading.equals(expCornerHeading))
 		{
-			System.out.println("Corner Heading is matched");
+			Testbase.log.info("Corner Heading is matched");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Corner Heading not matched");
+			Testbase.log.info("Corner Heading not matched");
 			return false ;
 		}
 	}
 	
-
 	public boolean getStatus() {
 		String expected="Online";
-		String actual= onlineStatus.getText();
+		String actual= Utility.stringText(onlineStatus);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -98,7 +91,7 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 
 	public boolean getSeq() {
 		String expected="Home Dashboard";
-		String actual=seqHD.getText();
+		String actual=Utility.stringText(seqHD);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -107,7 +100,7 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 
 	public boolean getNmKiran() {
 		String expected="Kiran";
-		String actual= kiranHead.getText();
+		String actual=Utility.stringText(kiranHead);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -150,31 +143,32 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	}
 
 	public boolean getDashHeading() {
-		String actMainHeading = dashHeading.getText();
+		String actMainHeading =Utility.stringText(dashHeading);
 		String expMainHeading = "Dashboard Courses Offered" ;
 		
 		if(actMainHeading.equals(expMainHeading))
 		{
-			System.out.println("Main Heading is matched");
+			Testbase.log.info("Main Heading is matched");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Main Heading not matched");
+			Testbase.log.info("Main Heading not matched");
 			return false ;
 		}
 	}
 
-	
-
 	public boolean usefulLinkMenu() {
-		usefulLinkBtn.click();
+		Utility.click(usefulLinkBtn);
+		
 		String actTitle = driver.getTitle();
 		String expTitle = "JavaByKiran | Useful Links" ;
-		dashboard.click();
+		
+		Utility.click(dashboard);
+	
 		if(actTitle.equals(expTitle))
 		{
-			System.out.println("Useful Links Menu is working properly");
+			Testbase.log.info("Useful Links Menu is working properly");
 			return true ;
 		}
 		else 
@@ -184,13 +178,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		}
 	}
 	public boolean downloadsMenu () 
-	{
-		downloadsBtn.click();
-		
+	{	Utility.click(downloadsBtn);
+	
 		String actTitle = driver.getTitle();
 		String expTitle = "JavaByKiran | Downloads" ;
-				
-		dashboard.click();
+		
+		Utility.click(dashboard);		
 		
 		if(actTitle.equals(expTitle))
 		{
@@ -207,11 +200,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	
 
 	public boolean usersMenu() {
-		userBtn.click();
+		Utility.click(userBtn);
+	
 		String actTitle = driver.getTitle();
 		String expTitle = "JavaByKiran | User" ;
-				
-		dashboard.click();
+		
+		Utility.click(dashboard);	
 		
 		if(actTitle.equals(expTitle))
 		{
@@ -227,13 +221,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 
 	
 	public boolean operatorsMenu () 
-	{
-		operatorBtn.click();
+	{	Utility.click(operatorBtn);
 		
 		String actTitle = driver.getTitle();
 		String expTitle = "JavaByKiran | Operators" ;
-				
-		dashboard.click();
+		
+		Utility.click(dashboard);		
 		
 		if(actTitle.equals(expTitle))
 		{
@@ -248,8 +241,7 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	}
 
 	public boolean verifyRightCornerLogOutLink() 
-	{
-		logoutBtn.click();
+	{	Utility.click(logoutBtn);
 		
 		String actTitle = driver.getTitle();
 		String expTitle = "JavaByKiran | Log in" ;
@@ -272,23 +264,8 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		expNewWindowUrls.add("file:///C:/Users/rajat/Downloads/Selenium%20Softwares/Offline%20Website/Offline%20Website/pages/pdf/python-syllabus.pdf");
 		expNewWindowUrls.add("file:///C:/Users/rajat/Downloads/Selenium%20Softwares/Offline%20Website/Offline%20Website/pages/examples/dashboard.html#");
 		
-		
-		Set<String> actNewWindowUrls = new HashSet<String>();
+		Set<String> actNewWindowUrls=Utility.getWindowHandleCheckingUrl(driver, moreinfo);
 
-		String mainWindow = driver.getWindowHandle();
-
-		for (WebElement link : moreinfo) {
-			link.click();// 5 wins are opened
-		}
-		Set<String> wins = driver.getWindowHandles();
-		for (String child : wins) {
-			if (!child.equals(mainWindow)) {
-				driver.switchTo().window(child);
-				actNewWindowUrls.add(driver.getCurrentUrl());
-				driver.close();
-			}
-		}
-		driver.switchTo().window(mainWindow);
 		if(actNewWindowUrls.equals(expNewWindowUrls))
 		return true;
 		else
@@ -305,13 +282,9 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 			return false;
 	}
 	
-	public boolean getMoreInfoLinks() {
-		ArrayList <String>expMoreInfoTags = new ArrayList <String>();
-		expMoreInfoTags.add("More info");
-		expMoreInfoTags.add("More info");		
-		expMoreInfoTags.add("More info");
-		expMoreInfoTags.add("More info");
-		
+	public boolean getMoreInfoLinks() throws Exception {
+
+		ArrayList <String>expMoreInfoTags=ExcelUtility.getDataOfAnyColumn("Data.xlsx","moreinfo",0);
 		ArrayList<String> actData = new ArrayList<String>();
 		for (WebElement ele : moreinfo) {
 			String text = ele.getText();
@@ -324,14 +297,7 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	}
 
 	public boolean getNavigatorLinks() {
-		ArrayList <String> expNavigationMenuText = new ArrayList <String>();
-		expNavigationMenuText.add("Dashboard");
-		expNavigationMenuText.add("Users"); 
-		expNavigationMenuText.add("Operators");
-		expNavigationMenuText.add("Useful Links");
-		expNavigationMenuText.add("Downloads");
-		expNavigationMenuText.add("Logout");
-		
+		ArrayList<String> expNavigationMenuText=Utility.getExpectedNavigation();
 		ArrayList<String> actData = new ArrayList<String>();
 		for (WebElement ele : navigator) {
 			String text = ele.getText();
@@ -343,29 +309,10 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		else 
 			return false;
 	}
-	public boolean jbk_Link () throws InterruptedException 
-	{
-		String parent = driver.getWindowHandle();
-		
-		jbkLink.click();
-		Thread.sleep(10000);
-		
-		Set <String> allWindows = driver.getWindowHandles();
-		
-		String actWindowTitle = null ;
-		String expWindowTitle = "Java Classes in Pune | Selenium Training | Python Courses in pune";
-		
-		for(String child : allWindows)
-		{
-			if(!parent.equalsIgnoreCase(child))
-			{
-				driver.switchTo().window(child);
-				actWindowTitle = driver.getTitle();
-				driver.close();
-			}
-		}
-		driver.switchTo().window(parent);
-		
+	public boolean jbk_Link () throws Exception 
+	{	String expWindowTitle = "Java Classes in Pune | Selenium Training | Python Courses in pune";
+		String actWindowTitle=Utility.getSingleWindowHandleVerifyTitle(driver, jbkLink);
+
 		if(actWindowTitle.equals(expWindowTitle))
 		{
 			System.out.println("New window title is matched");
@@ -380,66 +327,27 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	public boolean courseHeadingExcel () throws Exception
 	{
 		ArrayList <String>actData = new ArrayList <String>();
-		ArrayList <String>expData = new ArrayList <String>();
-		
 		for (WebElement element : courses)
 		{
 			actData.add(element.getText());
 		}
-		
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		String value=null;
-		FileInputStream fis = new FileInputStream(path);
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("dashboard");
-		int row=sh.getPhysicalNumberOfRows();
-		
-		for (int i=1 ; i<row ; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j=0; j<col-2 ; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expData.add(value);
-			}
-		}
-		
+		ArrayList <String>expData =ExcelUtility.getDataOfAnyColumn("Data.xlsx","courses",0);
+	
 		if(actData.equals(expData))
 			return true ;
 		else 
 			return false ;
 	}
 	
-	//23
+
 	public boolean courseSubHeadingExcel () throws Exception
 	{
 		ArrayList <String>actData = new ArrayList <String>();
-		ArrayList <String>expData = new ArrayList <String>();
+		ArrayList <String>expData =ExcelUtility.getDataOfAnyColumn("Data.xlsx","subcourses",0);
 		
 		for (WebElement element : subcourse)
 		{
 			actData.add(element.getText());
-		}
-		
-		String value=null;
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		FileInputStream fis = new FileInputStream(path);
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("dashboard");
-		int row=sh.getPhysicalNumberOfRows();
-		
-		for (int i=1 ; i<row ; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j=1; j<col-1 ; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expData.add(value);
-			}
 		}
 		
 		if(actData.equals(expData))

@@ -18,14 +18,14 @@ public class UseFulLinkTest extends Testbase {
 
 	@BeforeSuite
 	public void setup() throws Exception {
-		driver = initialization();
+		driver = initialization("config.properties");
 		lp = new LoginPage(driver);
 		lp.uname.sendKeys("kiran@gmail.com");
 		lp.pass.sendKeys("123456");
 		lp.loginButton.click();
-		dp=new DashboardPage(driver);
+		dp = new DashboardPage(driver);
 		dp.usefulLinkBtn.click();
-		ufp=new UseFulLinkPage(driver);
+		ufp = new UseFulLinkPage(driver);
 	}
 
 	@AfterSuite
@@ -33,36 +33,37 @@ public class UseFulLinkTest extends Testbase {
 		driver.quit();
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void verifyUrl() {
 		Assert.assertTrue(ufp.getURLOfBrowser());
 	}
 
-	@Test(priority=2)
+	@Test(priority = 2)
 	public void verifyTitle() {
 		Assert.assertTrue(ufp.getTitleOfBrowser());
-		}
-
-	@Test(priority=3)
-	public void verifyHeading() {
-		Assert.assertTrue(ufp.getHeading() );
 	}
 
-	@Test(priority=4)
+	@Test(priority = 3)
+	public void verifyHeading() {
+		Assert.assertTrue(ufp.getHeading());
+	}
+
+	@Test(priority = 4)
 	public void verifySubHeading() {
 		Assert.assertTrue(ufp.getSubHeading());
 	}
-	@Test(priority=5)
+
+	@Test(priority = 5)
 	public void verifyFooter() {
-		
 		Assert.assertTrue(ufp.getFooter());
 	}
-	@Test(priority=6)
+
+	@Test(priority = 6)
 	public void checkNavigation() {
-		
 		Assert.assertTrue(ufp.getNavigator());
 	}
-	@Test(priority=7)
+
+	@Test(priority = 7)
 	public void checkRightCornerHeading() {
 		Assert.assertTrue(ufp.getRightCornerHeading());
 	}
@@ -72,49 +73,50 @@ public class UseFulLinkTest extends Testbase {
 		Assert.assertTrue(ufp.getNmKiran());
 	}
 
-	@Test(priority=11)
+	@Test(priority = 11)
 	public void verifyUserStatus() {
-		Assert.assertTrue(ufp.getStatus() );
+		Assert.assertTrue(ufp.getStatus());
 	}
 
-	@Test(priority=12)
+	@Test(priority = 12)
 	public void checkImage() {
 		Assert.assertTrue(ufp.imageDisplay());
 	}
+
 	@Test(priority = 13)
 	public void leftCornerHeading() {
-		
+
 		Assert.assertTrue(ufp.getheadJBK());
 	}
-	@Test(priority=14)
-	public void checkHeadersOfTable() throws Exception{
-		
+
+	@Test(priority = 14)
+	public void checkHeadersOfTable() throws Exception {
+
 		Assert.assertTrue(ufp.checkHeader());
 	}
-	@Test(priority=15)
-	public void verifyDataPresentInTable()throws Exception{
+
+	@Test(priority = 15)
+	public void verifyDataPresentInTable() throws Exception {
 		Assert.assertTrue(ufp.getUsefulLinkTableRowdata());
 	}
-	@Test (priority=16)
-	public void verifyClickGO() throws Exception
-	{
+
+	@Test(priority = 16)
+	public void verifyClickGO() throws Exception {
 		Assert.assertTrue(ufp.clickGO());
 	}
-	
-	@Test (priority=17)
-	public void verifyClickGoExcel() throws Exception
-	{
+
+	@Test(priority = 17)
+	public void verifyClickGoExcel() throws Exception {
 		Assert.assertTrue(ufp.clickGoExcel());
 	}
-	
-	@Test (priority=18)
-	public void verifyComplete_UsefulLinksTable() throws Exception
-	{
+
+	@Test(priority = 18)
+	public void verifyComplete_UsefulLinksTable() throws Exception {
 		Assert.assertTrue(ufp.complete_UsefulLinksTable());
 	}
-	@Test(priority=19)
-	public void verifyContentForClickGo(){
-		
+
+	@Test(priority = 19)
+	public void verifyContentForClickGo() {
 		Assert.assertTrue(ufp.contentForClickCol());
 	}
 

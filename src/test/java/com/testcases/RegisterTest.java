@@ -18,7 +18,7 @@ public class RegisterTest extends Testbase{
 	@BeforeSuite
 	public void OpenBrowser () throws Exception
 	{
-		driver=initialization();
+		driver=initialization("config.properties");
 		lp=new LoginPage(driver);
 		lp.registerLink.click();
 		rp = new RegisterPage(driver);

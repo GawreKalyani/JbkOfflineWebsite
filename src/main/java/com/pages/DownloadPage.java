@@ -1,16 +1,12 @@
 package com.pages;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import com.objectRepositary.DownloadPgObjectRepositary;
+import com.utility.ExcelUtility;
+import com.utility.Utility;
 
 public class DownloadPage extends DownloadPgObjectRepositary {
 	WebDriver driver;
@@ -40,7 +36,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 
 	public boolean getHeading() {
 		String expected="Downloads";
-		String actual= heading.getText();
+		String actual=Utility.stringText(heading);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -49,7 +45,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 
 	public boolean getSubHeading() {
 		String expected="Downloads List";
-		String actual=subheading.getText();
+		String actual=Utility.stringText(subheading);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -59,7 +55,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 	public boolean getFooter() {
 		String expected="Design for Selenium Automation Test V 2.3.0\n"
 				+ "Copyright © 2005-2019 JavaByKiran. All rights reserved.";
-		String actual= footer.getText();
+		String actual=Utility.stringText(footer);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -68,7 +64,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 
 	public boolean getRightCornerHeading() {
 		String expected="Home Downloads";
-		String actual= homeUserRight.getText();
+		String actual=Utility.stringText(homeUserRight);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -77,7 +73,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 
 	public boolean getStatus() {
 		String expected="Online";
-		String actual=onlineStatus.getText();
+		String actual=Utility.stringText(onlineStatus);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -85,7 +81,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 	}
 	public boolean getheadJBK() {
 		String expected="Java By Kiran";
-		String actual=jbk.getText();
+		String actual=Utility.stringText(jbk);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -93,7 +89,7 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 	}
 	public boolean getNmKiran() {
 		String expected="Kiran";
-		String actual= kiranHead.getText();
+		String actual=Utility.stringText(kiranHead);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -102,46 +98,19 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 	public boolean imageDisplay() {
 		return image.isDisplayed();
 	}
-	public LoginPage clickLogout() {
-		logoutBtn.click();
-		return new LoginPage(driver);
-	}
-
+	
 	public boolean checkHeader() throws Exception {
-		
-		ArrayList<String> exp=new ArrayList<String>();
-		String value=null;
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		FileInputStream fis=new FileInputStream(path);
-		Workbook wb=WorkbookFactory.create(fis);
-		Sheet sh=wb.getSheet("downloadHeader");
-		int row=sh.getPhysicalNumberOfRows();
-		for (int i = 0; i < row; i++) 
-		{
-			Cell cell=sh.getRow(i).getCell(0);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				exp.add(value);
-				//System.out.println(value);
-		}
-		ArrayList<String> actData = new ArrayList<String>();
-		for (WebElement ele : headers) {
-			String name = ele.getText();
-			actData.add(name);
-		}
+		ArrayList<String> exp=ExcelUtility.getTableColumnData("Data.xlsx","downloadHeader",0);
+		ArrayList<String> actData = Utility.getActualListOfHeadingOfTable(headers);
+	
 		if(actData.equals(exp))
 			return true;
 		else
 			return false;
 	}
 	public boolean getNavigator() {
-		ArrayList<String> expNavigationMenuText = new ArrayList<String>();
-		expNavigationMenuText.add("Dashboard");
-		expNavigationMenuText.add("Users");
-		expNavigationMenuText.add("Operators");
-		expNavigationMenuText.add("Useful Links");
-		expNavigationMenuText.add("Downloads");
-		expNavigationMenuText.add("Logout");
+		
+		ArrayList<String> expNavigationMenuText=Utility.getExpectedNavigation();
 		ArrayList<String> actData = new ArrayList<String>();
 		for (WebElement element : navigator) {
 			String text = element.getText();
@@ -285,42 +254,8 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 
 	public boolean completeDownloadsTable() throws Exception
 	{
-		ArrayList <String>actData = new ArrayList <String>();
-		
-		ArrayList <String>expData = new ArrayList <String>();
-		
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		String value=null;
-		FileInputStream fis = new FileInputStream(path);
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("download");
-		int row=sh.getPhysicalNumberOfRows();
-		
-		for (int i = 0; i < row; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j = 0; j <col; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expData.add(value);
-			}
-		}
-		
-		for (WebElement element : headers)
-		{
-			String data = element.getText();
-			actData.add(data);
-			System.out.println(data);
-		}
-		
-		for (WebElement element : tableData)
-		{
-			String data = element.getText();
-			actData.add(data);
-			System.out.println(data);
-		}
+		ArrayList <String>actData=Utility.getActualDataOfTableFully(headers, tableData);
+		ArrayList <String>expData=ExcelUtility.getTableDataFully("Data.xlsx","download");
 		
 		if(actData.equals(expData))
 			return true ;

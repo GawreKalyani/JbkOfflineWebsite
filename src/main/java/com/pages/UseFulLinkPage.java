@@ -1,18 +1,13 @@
 package com.pages;
 
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Set;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import com.objectRepositary.UsefulLinkPgObjectRepositary;
+import com.utility.ExcelUtility;
+import com.utility.Utility;
 
 public class UseFulLinkPage extends UsefulLinkPgObjectRepositary{
 WebDriver driver;
@@ -44,7 +39,7 @@ WebDriver driver;
 	
 	public boolean getHeading(){	
 		String expected="Useful Links";
-		String actual= heading.getText();
+		String actual=Utility.stringText(heading);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -52,7 +47,7 @@ WebDriver driver;
 	}
 	public boolean getStatus() {
 		String expected="Online";
-		String actual=onlineStatus.getText();
+		String actual=Utility.stringText(onlineStatus);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -60,7 +55,7 @@ WebDriver driver;
 	}
 	public boolean getheadJBK() {
 		String expected="Java By Kiran";
-		String actual=jbk.getText();
+		String actual=Utility.stringText(jbk);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -68,33 +63,16 @@ WebDriver driver;
 	}
 	public boolean getNmKiran() {
 		String expected="Kiran";
-		String actual=kiranHead.getText();
+		String actual=Utility.stringText(kiranHead);
 		if(actual.equals(expected))
 			return true;
 		else
 			return false;
 	}
 	public boolean checkHeader() throws Exception {
-		ArrayList<String> exp=new ArrayList<String>();
-		String value=null;
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		FileInputStream fis=new FileInputStream(path);
-		Workbook wb=WorkbookFactory.create(fis);
-		Sheet sh=wb.getSheet("usefulheader");
-		int row=sh.getPhysicalNumberOfRows();
-		for (int i = 0; i < row; i++) 
-		{
-			Cell cell=sh.getRow(i).getCell(0);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				exp.add(value);
-				System.out.println(value);
-		}
-		ArrayList<String> actData = new ArrayList<String>();
-		for (WebElement ele : headers) {
-			String name = ele.getText();
-			actData.add(name);
-		}
+		ArrayList<String> actData=Utility.getActualListOfHeadingOfTable(headers);
+		ArrayList<String>exp=ExcelUtility.getTableColumnData("Data.xlsx","usefulheader",0);
+	
 		if(actData.equals(exp))
 			return true;
 		else
@@ -105,7 +83,7 @@ WebDriver driver;
 	}
 	public boolean getSubHeading(){
 		String expected="* Internet Required";
-		String actual= subheading.getText();
+		String actual=Utility.stringText(subheading); 
 		if(actual.equals(expected))
 			return true;
 		else
@@ -113,7 +91,7 @@ WebDriver driver;
 		}
 	public boolean getRightCornerHeading() {
 		String expected="Home Useful Links";
-		String actual= homeUseFulRight.getText();
+		String actual=Utility.stringText(homeUseFulRight);
 		if(actual.equals(expected))
 			return true;
 		else
@@ -123,22 +101,14 @@ WebDriver driver;
 	public boolean getFooter() {
 		String expected = "Design for Selenium Automation Test V 2.3.0\n"
 				+ "Copyright © 2005-2019 JavaByKiran. All rights reserved.";
-		String actual=footer.getText();
+		String actual=Utility.stringText(footer);
 		if(actual.equals(expected))
 			return true;
 		else
 			return false;
 	}
 	public boolean getNavigator() {
-		
-		ArrayList<String> expNavigationMenuText = new ArrayList<String>();
-		expNavigationMenuText.add("Dashboard");
-		expNavigationMenuText.add("Users");
-		expNavigationMenuText.add("Operators");
-		expNavigationMenuText.add("Useful Links");
-		expNavigationMenuText.add("Downloads");
-		expNavigationMenuText.add("Logout");
-		
+		ArrayList<String> expNavigationMenuText=Utility.getExpectedNavigation();
 		ArrayList<String> actData = new ArrayList<String>();
 		for (WebElement element : navigator) {
 			String text = element.getText();
@@ -149,39 +119,17 @@ WebDriver driver;
 		else
 			return false;
 	}
+	
 	public boolean getUsefulLinkTableRowdata() throws Exception{
-		ArrayList<String> expData=new ArrayList<String>();
+		ArrayList<String> expData=Utility.getActualTableRowData(tableData);
+		ArrayList<String> actData=ExcelUtility.getExcelTableRowData("Data.xlsx","useful");
 		
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		String value=null;
-		FileInputStream fis=new FileInputStream(path);
-		Workbook wb=WorkbookFactory.create(fis);
-		Sheet sh=wb.getSheet("useful");
-		int row=sh.getPhysicalNumberOfRows();
-		for (int i = 1; i < row; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j = 0; j <col; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expData.add(value);
-				System.out.print("    "+value);
-			}
-			System.out.println();
-		}
-		ArrayList<String> actData = new ArrayList<String>();
-		
-			for (WebElement ele : tableData) {
-				String text = ele.getText();
-				actData.add(text);
-			}
 			if(actData.equals(expData))
 				return true;
 			else
 				return false;
 	}
+	
 	public boolean contentForClickCol(){
 		ArrayList<String> expData = new ArrayList<String>();
 		expData.add("Schedule");
@@ -210,7 +158,7 @@ WebDriver driver;
 	}
 	public boolean clickGO() throws Exception
 	{
-		ArrayList <String>actData = new ArrayList <String>();
+		ArrayList <String>actData =Utility.getWindowHandleVerifyingTitle(driver, goCol);
 		
 		ArrayList <String>expData = new ArrayList <String>();
 		expData.add("Page not found | javabyKiran");
@@ -220,126 +168,28 @@ WebDriver driver;
 		expData.add("Live Videos | javabyKiran");
 		expData.add("Page not found | javabyKiran");
 	
-		String parent = driver.getWindowHandle();
-		
-		for (WebElement element : goCol)
-		{
-			element.click();
-			Thread.sleep(5000);
-		}
-		
-		Set <String> allWindows = driver.getWindowHandles();
-		
-		for(String child : allWindows)
-		{
-			if(!parent.equalsIgnoreCase(child))
-			{
-				driver.switchTo().window(child);
-				actData.add(driver.getTitle());
-				System.out.println(driver.getTitle());
-				driver.close();
-			}
-		}
-		
-		driver.switchTo().window(parent);
-		
 		if(actData.equals(expData))
 			return true ;
 		else 	
 			return false ;	
 	}
 	
-	//2
 	public boolean clickGoExcel() throws Exception 
 	{
-		ArrayList <String>actData = new ArrayList <String>();
+		ArrayList <String>actData = Utility.getWindowHandleVerifyingTitle(driver, goCol);
 		
-		ArrayList <String>expData = new ArrayList <String>();
-		
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		String value=null;
-		FileInputStream fis = new FileInputStream(path);
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("goLink");
-		int row=sh.getPhysicalNumberOfRows();
-		
-		for (int i = 0; i < row; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j = 0; j <col; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expData.add(value);
-			}
-		}
-		String parent = driver.getWindowHandle();
-		
-		for (WebElement element : goCol)
-		{
-			element.click();
-			Thread.sleep(5000);
-		}
-		
-		Set <String> allWindows = driver.getWindowHandles();
-		
-		for(String child : allWindows)
-		{
-			if(!parent.equalsIgnoreCase(child))
-			{
-				driver.switchTo().window(child);
-				actData.add(driver.getTitle());
-				System.out.println(driver.getTitle());
-				driver.close();
-			}
-		}
-		
-		driver.switchTo().window(parent);
-		
+		ArrayList <String>expData =ExcelUtility.getDataOfAnyColumn("Data.xlsx","goLink",0);
+
 		if(actData.equals(expData))
 			return true ;
 		else 	
 			return false ;	
 	}
 	
-	//3
 	public boolean complete_UsefulLinksTable() throws Exception 
 	{
-		ArrayList <String>actData = new ArrayList <String>();
-		
-		ArrayList <String>expData = new ArrayList <String>();
-		
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		String value=null;
-		FileInputStream fis = new FileInputStream(path);
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("useful");
-		int row=sh.getPhysicalNumberOfRows();
-		
-		for (int i = 0; i < row; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j = 0; j <col; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expData.add(value);
-			}
-		}
-		
-		for (WebElement element : headers)
-		{
-			String data = element.getText();
-			actData.add(data);
-		}
-		
-		for (WebElement element : tableData)
-		{
-			String data = element.getText();
-			actData.add(data);
-		}
+		ArrayList <String>actData=Utility.getActualDataOfTableFully(headers, tableData);
+		ArrayList <String>expData=ExcelUtility.getTableDataFully("Data.xlsx","useful");
 		
 		if(actData.equals(expData))
 			return true ;

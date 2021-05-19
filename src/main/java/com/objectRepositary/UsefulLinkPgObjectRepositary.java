@@ -31,7 +31,7 @@ public class UsefulLinkPgObjectRepositary {
 	public WebElement footer;
 	
 	@FindBy(xpath="//td")
-	public List<WebElement> tableData;
+	public List<WebElement>tableData;
 
 	@FindBy(xpath="//span[contains(text(),'Go !')]//preceding::li//span")
 	public List<WebElement>navigator;
@@ -40,7 +40,7 @@ public class UsefulLinkPgObjectRepositary {
 	public WebElement homeUseFulRight;
 	
 	@FindBy(xpath="//th")
-	public List<WebElement> headers;
+	public List<WebElement>headers;
 
 	@FindBy(xpath="//span[text()='Go !']")
 	public List<WebElement> goCol;

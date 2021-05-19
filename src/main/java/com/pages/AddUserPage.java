@@ -1,21 +1,14 @@
 package com.pages;
 
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import com.objectRepositary.AddUserPgObjectRepositary;
+import com.utility.ExcelUtility;
+import com.utility.Utility;
 
 public class AddUserPage extends AddUserPgObjectRepositary{
 WebDriver driver;
@@ -46,18 +39,20 @@ WebDriver driver;
 			return false;
 	}
 	public boolean addUserValid(){
-		username.sendKeys("Alihan");
-		mob.sendKeys("9876673773");
-		email.sendKeys("alihan@gmail.com");
-		course.sendKeys("Selenium");
-		maleradio.click();
-		maharashtra.click();
-		pass.sendKeys("jhh");
-		submitbutton.click();
-		Alert al = driver.switchTo().alert();
-		String actMsg = al.getText();
-		al.accept();
+		Utility.sendkeys(username,"Alihan");
+		Utility.sendkeys(mob,"9876673773");
+		Utility.sendkeys(email,"alihan@gmail.com");
+		Utility.sendkeys(course,"Selenium");
 		
+		Utility.click(maleradio);
+		
+		Select s=new Select(selectstate);
+		s.selectByVisibleText("Maharashtra");
+		
+		Utility.sendkeys(pass, "jhh");
+		Utility.click(submitbutton);
+		
+		String actMsg=Utility.alertHandle(driver);
 		String expMsg = "User Added Successfully. You can not see added user.";
 		
 		if(actMsg.equals(expMsg))
@@ -95,7 +90,7 @@ WebDriver driver;
 	{
 		ArrayList <String> actDragDownOptions1 = new ArrayList <String>();
 		
-		ArrayList <String> expDragDownOptions1  = new ArrayList <String>();
+		ArrayList <String> expDragDownOptions1=ExcelUtility.getTableColumnData("Data.xlsx", "statelist", 0);
 		
 		Select states = new Select(selectstate);
 		
@@ -104,27 +99,8 @@ WebDriver driver;
 		for(WebElement element : list)
 		{
 			actDragDownOptions1.add(element.getText());
-			System.out.println(element.getText());
 		}
-		String path=System.getProperty("user.dir")+"/src/test/resources/Data.xlsx";
-		String value=null;
-		FileInputStream fis = new FileInputStream(path);
-		Workbook wb = WorkbookFactory.create(fis);
-		Sheet sh = wb.getSheet("statelist");
-		int row=sh.getPhysicalNumberOfRows();
-		
-		for (int i=0 ; i<row ; i++) 
-		{
-			int col=sh.getRow(i).getLastCellNum();
-			for (int j=0; j<col ; j++) 
-			{
-				Cell cell=sh.getRow(i).getCell(j);
-				DataFormatter df=new DataFormatter();
-				value=df.formatCellValue(cell);
-				expDragDownOptions1.add(value);
-			}
-		}
-		
+	
 		if(actDragDownOptions1.equals(expDragDownOptions1))
 			return true ;
 		else
