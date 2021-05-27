@@ -3,6 +3,24 @@
   <groupId>com.jbk</groupId>
   <artifactId>OfflineWebsiteJBK</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+   <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<useSystemClassLoader>false</useSystemClassLoader>
+					<testFailureIgnore>true</testFailureIgnore>
+					<suiteXmlFiles>
+						<suiteXmlFile>testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
   <properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -20,10 +38,11 @@
 	    <artifactId>testng</artifactId>
 	    <version>7.3.0</version>
 	 </dependency>
-	  <dependency>
-	    <groupId>com.relevantcodes</groupId>
-	    <artifactId>extentreports</artifactId>
-	    <version>2.41.2</version>
+	 
+	<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>4.0.0</version>
 	</dependency>
 	  
 	  <dependency>

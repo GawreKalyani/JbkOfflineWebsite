@@ -4,33 +4,26 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.base.Testbase;
-import com.pages.DashboardPage;
 import com.pages.LoginPage;
 import com.pages.UserPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class UserTest extends Testbase {
-	WebDriver driver;
+
 	LoginPage lp = null;
-	DashboardPage dp = null;
+	
 	UserPage up = null;
 
 	@BeforeSuite
 	public void setup() throws Exception {
 		driver = initialization("config.properties");
 		lp = new LoginPage(driver);
-		lp.uname.sendKeys("kiran@gmail.com");
-		lp.pass.sendKeys("123456");
-		lp.loginButton.click();
-		dp=new DashboardPage(driver);
-		dp.userBtn.click();
-		up=new UserPage(driver);
-	}
+		up=lp.navigateToDashboardPg().navigateToUserPg();
+		}
 
 	@AfterSuite
 	public void tearDown() {
-		driver.close();
+		driver.quit();
 	}
 
 	@Test(priority=1)

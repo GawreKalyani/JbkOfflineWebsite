@@ -44,10 +44,9 @@ WebDriver driver;
 		Utility.sendkeys(email,"alihan@gmail.com");
 		Utility.sendkeys(course,"Selenium");
 		
-		Utility.click(maleradio);
+		Utility.click(maleradio); //radio button
 		
-		Select s=new Select(selectstate);
-		s.selectByVisibleText("Maharashtra");
+		Utility.selectBy(selectstate,"Maharashtra");
 		
 		Utility.sendkeys(pass, "jhh");
 		Utility.click(submitbutton);

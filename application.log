@@ -1,5 +1,0 @@
-2021-05-19 07:45:39,562  INFO [main] Testbase:29 - initializing browser
-2021-05-19 07:45:39,562  WARN [main] Testbase:30 - chromedriver file should be at specific location
-2021-05-19 07:45:39,562  INFO [main] Testbase:33 - chrome browser opened
-2021-05-19 07:45:41,399  INFO [main] Testbase:51 - JBK Offline application is launched
-2021-05-19 07:45:41,934  INFO [main] Testbase:54 - maximizing browser window

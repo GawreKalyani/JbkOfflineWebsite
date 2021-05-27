@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import com.base.Testbase;
 import com.objectRepositary.RegisterPgObjectRepositary;
 import com.utility.Utility;
 
@@ -25,12 +23,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		
 		if(actualUrl.equals(expectedUrl))
 		{
-			Testbase.log.info("Url is matched");
+			System.out.println("Url is matched");
 			return true ;
 		}
 		else
 		{
-			Testbase.log.info("Url is not matched");
+			System.out.println("Url is not matched");
 			return false ;
 		}
 	}
@@ -41,12 +39,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		
 		if(actualTitle.equals(expectedTitle))
 		{
-			Testbase.log.info("Title is matched");
+			System.out.println("Title is matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Title not matched");
+			System.out.println("Title not matched");
 			return false ;
 		}		
 	}
@@ -57,12 +55,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		
 		if(actualHeading.equals(expectedHeading))
 		{
-			Testbase.log.info("Heading is matched");
+			System.out.println("Heading is matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Heading not matched");
+			System.out.println("Heading not matched");
 			return false ;
 		}
 	}
@@ -73,12 +71,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		
 		if(actualAlreadyMemberLinkText.equals(expectedAlreadyMemberLinkText))
 		{
-			Testbase.log.info("Text is matched");
+			System.out.println("Text is matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Text not matched");
+			System.out.println("Text not matched");
 			return false ;
 		}
 	}
@@ -99,12 +97,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		
 		if(actPlaceholderText.equals(expPlaceholderText))
 		{
-			Testbase.log.info("Placeholders are matched");
+			System.out.println("Placeholders are matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Placeholders are not matched");
+			System.out.println("Placeholders are not matched");
 			return false ;
 		}
 	}
@@ -120,12 +118,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		System.out.println(alMessage);
 		if(alMessage.equals("User registered successfully."))
 		{
-			Testbase.log.info("Registered successfully.");
+			System.out.println("Registered successfully.");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Registered unsuccessfully.");
+			System.out.println("Registered unsuccessfully.");
 			return false ;
 		}
 	}
@@ -145,12 +143,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		System.out.println(alMessage);
 		if(alMessage.equals("User registered successfully."))
 		{
-			Testbase.log.info("Registered successfully.");
+			System.out.println("Registered successfully.");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Registered unsuccessfully.");
+			System.out.println("Registered unsuccessfully.");
 			return false ;
 		}
 	}
@@ -164,12 +162,12 @@ public class RegisterPage extends RegisterPgObjectRepositary {
 		
 		if(actualTitle.equals(expectedTitle))
 		{
-			Testbase.log.info("Link is Working Properly");
+			System.out.println("Link is Working Properly");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Link is not Working Properly");
+			System.out.println("Link is not Working Properly");
 			return false ;
 		}
 	}
@@ -198,11 +196,11 @@ public boolean getRegPgErrorMsg(){
 		System.out.println(text);
 	}
 	if(actData.equals(expData)){
-		Testbase.log.info("Text is matched");
+		System.out.println("Text is matched");
 		return true;
 		}
 	else
-		{	Testbase.log.info("Text not matched");
+		{	System.out.println("Text not matched");
 			return false;
 		}
 				

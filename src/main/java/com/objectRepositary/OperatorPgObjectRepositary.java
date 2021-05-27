@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class OperatorPgObjectRepositary {
+import com.utility.PageBase;
+
+public class OperatorPgObjectRepositary extends PageBase {
 	@FindBy(xpath="//td[2]")
 	public List<WebElement> personNames;
 	

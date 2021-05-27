@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DashboardPgObjectRepositary {
+import com.utility.PageBase;
+
+public class DashboardPgObjectRepositary extends PageBase {
 	@FindBy(tagName="h1")
 	public WebElement dashHeading;
 	

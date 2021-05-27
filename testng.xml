@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite"  parallel="tests" thread-count="1" verbose="10" preserve-order="true">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite"  verbose="1">
+<listeners>
+		<listener class-name="com.listener.TestListener" />
+	</listeners>
+
   <test name="Test">
     <classes>
-      <class name="com.testcases.LoginTest"/>
-      
-       <class name="com.testcases.RegisterTest"/>
-       <!-- <class name="com.testcases.DashboardTest"/> -->
+     	 <class name="com.testcases.LoginTest"/>
+     	 <class name="com.testcases.RegisterTest"/>
+       	<class name="com.testcases.DashboardTest"/> 
+         <class name="com.testcases.UserTest"/> 
+          <class name="com.testcases.UseFulLinkTest"/> 
+          <class name="com.testcases.OperatorTest"/> 
+           <class name="com.testcases.DownloadTest"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

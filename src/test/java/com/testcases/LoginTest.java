@@ -1,25 +1,25 @@
 package com.testcases;
 
-import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.base.Testbase;
 import com.pages.DashboardPage;
 import com.pages.LoginPage;
-
+import com.utility.ExcelUtility;
 
 import org.testng.Assert;
 
 
 public class LoginTest extends Testbase {
-	WebDriver driver;
+	
 	public static LoginPage lp=null;
 	DashboardPage dp=null;
 	
 	@BeforeSuite
 	public void setup() throws Exception{
-		log.info("loginPage is launched");
+		//log.info("loginPage is launched");
 		driver=initialization("config.properties");
 		lp=new LoginPage(driver);
 		dp=new DashboardPage(driver);
@@ -27,11 +27,12 @@ public class LoginTest extends Testbase {
 	
 	@AfterSuite
 	public void tearDown(){
-		driver.close();
+		driver.quit();
 	}
 	
 	@Test(priority=1)
 	public void checkUrl(){
+		testLog().info("verifying url of browser");
 		Assert.assertTrue(lp.getURLOfBrowser());
 	}
 	
@@ -65,21 +66,26 @@ public class LoginTest extends Testbase {
 	public void checkLoginSuccessfullyDone()
 	{	
 		Assert.assertTrue(lp.loginSuccessfully());
-		dp.logoutBtn.click();
+		dp.clickLogout();
 	}
 	@Test(priority=9)
+	public void verifyLoginTitleWithMultipledata()throws Exception{
+		lp.loginWithAllData(ExcelUtility.readUnameAndPass("Data.xlsx", "login", 0, 1));
+	}
+	
+	@Test(priority=10)
 	public void verifyBlankEmailPasswordErrorMsg()
 	{  
 		Assert.assertTrue(lp.getErrorMsgForBlankEntry());
 	}
 	
-	@Test(priority=10)
+	@Test(priority=11)
 	public void verifyInvalidLoginEntryErrorMessage()
 	{
 		Assert.assertTrue(lp.getErrorMsgForInvalidEntry());
 	}
 	
-	@Test(priority=11)
+	@Test(priority=12)
 	public void checkRegistrationTitle()
 	{
 		Assert.assertTrue(lp.getTitleOfRegisterPg());

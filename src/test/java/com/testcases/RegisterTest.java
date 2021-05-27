@@ -20,9 +20,7 @@ public class RegisterTest extends Testbase{
 	{
 		driver=initialization("config.properties");
 		lp=new LoginPage(driver);
-		lp.registerLink.click();
-		rp = new RegisterPage(driver);
-		
+		rp=lp.navigateToRegisterPg();
 	}
 	@AfterSuite
 	public void CloseBrowser()

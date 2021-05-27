@@ -1,31 +1,25 @@
 package com.testcases;
 
-import org.openqa.selenium.WebDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.base.Testbase;
-import com.pages.DashboardPage;
 import com.pages.LoginPage;
 import com.pages.UseFulLinkPage;
 
 public class UseFulLinkTest extends Testbase {
-	WebDriver driver;
+
 	LoginPage lp = null;
-	DashboardPage dp = null;
+	
 	UseFulLinkPage ufp = null;
 
 	@BeforeSuite
 	public void setup() throws Exception {
 		driver = initialization("config.properties");
 		lp = new LoginPage(driver);
-		lp.uname.sendKeys("kiran@gmail.com");
-		lp.pass.sendKeys("123456");
-		lp.loginButton.click();
-		dp = new DashboardPage(driver);
-		dp.usefulLinkBtn.click();
-		ufp = new UseFulLinkPage(driver);
+		ufp=lp.navigateToDashboardPg().navigateToUseFulLinkPage();
 	}
 
 	@AfterSuite

@@ -1,38 +1,30 @@
 package com.testcases;
 
-import org.openqa.selenium.WebDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import com.base.Testbase;
-import com.pages.DashboardPage;
 import com.pages.LoginPage;
 import com.pages.OperatorPg;
-import com.pages.UserPage;
+
 
 public class OperatorTest extends Testbase {
-	WebDriver driver;
+	
 	LoginPage lp = null;
-	DashboardPage dp = null;
-	UserPage up = null;
 	OperatorPg op=null;
 
 	@BeforeSuite
 	public void setup() throws Exception {
 		driver = initialization("config.properties");
 		lp = new LoginPage(driver);
-		lp.uname.sendKeys("kiran@gmail.com");
-		lp.pass.sendKeys("123456");
-		lp.loginButton.click();
-		dp=new DashboardPage(driver);
-		dp.operatorBtn.click();
-		op=new OperatorPg(driver);
+		op=lp.navigateToDashboardPg().navigateToOperatorPgPg();
 	}
 
 	@AfterSuite
 	public void tearDown() {
-		driver.close();
+		driver.quit();
 	}
 
 	@Test(priority=1)

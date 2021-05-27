@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DownloadPgObjectRepositary {
+import com.utility.PageBase;
+
+public class DownloadPgObjectRepositary extends PageBase {
 	@FindBy(linkText="LOGOUT")
 	public WebElement logoutBtn;
 	

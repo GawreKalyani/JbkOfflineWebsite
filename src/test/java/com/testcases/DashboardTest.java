@@ -1,7 +1,6 @@
 package com.testcases;
 
 import org.testng.Assert;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -11,27 +10,25 @@ import com.pages.LoginPage;
 
 
 public class DashboardTest extends Testbase {
-	WebDriver driver=null;
+
 	LoginPage lp=null;
 	DashboardPage dp=null;
-	
+
 	@BeforeSuite
 	public void setup() throws Exception {
 		driver = initialization("config.properties");
 		lp=new LoginPage(driver);
-		lp.uname.sendKeys("kiran@gmail.com");
-		lp.pass.sendKeys("123456");
-		lp.loginButton.click();
-		dp = new DashboardPage(driver);
+		dp=lp.navigateToDashboardPg();
 	}
 
 	@AfterSuite
 	public void tearDown() {
-		driver.close();
+		driver.quit();
 	}
 	
 	@Test(priority=1)
 	public void checkUrl(){
+		
 		Assert.assertTrue(dp.url());
 	}
 	@Test(priority=2)
@@ -109,7 +106,6 @@ public class DashboardTest extends Testbase {
 	
 	@Test(priority=19)
 	public void windowHandle(){
-
 		Assert.assertTrue(dp.getAllWindow());	
 	}
 	@Test (priority=20)

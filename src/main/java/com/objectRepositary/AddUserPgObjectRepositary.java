@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AddUserPgObjectRepositary {
+import com.utility.PageBase;
+
+public class AddUserPgObjectRepositary extends PageBase {
 	
 	@FindBy(xpath="//button//preceding::label")
 	public List<WebElement> labels;

@@ -4,89 +4,95 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class Utility {
-	WebDriver driver ;
-	
-	
-	public static void sendkeys(WebElement element, String datatoEnter){
+	WebDriver driver;
+
+	public static String getTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+
+	public static void sendkeys(WebElement element, String datatoEnter) {
 		element.sendKeys(datatoEnter);
 	}
 
-	public static ArrayList <String> getActualListOfHeadingOfTable (List<WebElement> headers) 
-	{
-		ArrayList <String> actHead = new ArrayList <String>();
-		for (WebElement element : headers)
-		{
+	public static void selectBy(WebElement element, String text) {
+		Select sel = new Select(element);
+		sel.selectByVisibleText(text);
+	}
+
+	public static ArrayList<String> getActualListOfHeadingOfTable(List<WebElement> headers) {
+		ArrayList<String> actHead = new ArrayList<String>();
+		for (WebElement element : headers) {
 			actHead.add(element.getText());
 		}
-		return actHead ;
+		return actHead;
 	}
-	public static ArrayList<String> getActualTableRowData(List<WebElement>tableData ) 
-	{
-		ArrayList <String> actHead = new ArrayList <String>();
-		for (WebElement element : tableData)
-		{
-			String text=element.getText();
+
+	public static ArrayList<String> getActualTableRowData(List<WebElement> tableData) {
+		ArrayList<String> actHead = new ArrayList<String>();
+		for (WebElement element : tableData) {
+			String text = element.getText();
 			actHead.add(text);
 			System.out.println(text);
 		}
-		return actHead ;
+		return actHead;
 	}
-	public static ArrayList <String> getActualDataOfTableFully (List<WebElement> headers,List<WebElement>tableData) 
-	{
-		ArrayList <String> actHead = new ArrayList <String>();
-		for (WebElement element : headers)
-		{
+
+	public static ArrayList<String> getActualDataOfTableFully(List<WebElement> headers, List<WebElement> tableData) {
+		ArrayList<String> actHead = new ArrayList<String>();
+		for (WebElement element : headers) {
 			actHead.add(element.getText());
 		}
-		for (WebElement element : tableData)
-		{
+		for (WebElement element : tableData) {
 			actHead.add(element.getText());
 		}
-		return actHead ;
+		return actHead;
 	}
-	
-	public static void clear(WebElement button)
-	{
+
+	public static void clear(WebElement button) {
 		button.clear();
 	}
-	public static void click(WebElement element)
-	{
+
+	public static void click(WebElement element) {
 		element.click();
 	}
-	public static String stringText(WebElement element){
+
+	public static String stringText(WebElement element) {
 		return element.getText();
 	}
-	public static String alertHandle(WebDriver driver){
-		Alert al=driver.switchTo().alert();
-		String alertmsg=al.getText();
+
+	public static String alertHandle(WebDriver driver) {
+		Alert al = driver.switchTo().alert();
+		String alertmsg = al.getText();
 		al.accept();
 		return alertmsg;
-		
+
 	}
-	public static String alertToDismiss(WebDriver driver){
-		Alert al=driver.switchTo().alert();
-		String alertmsg=al.getText();
+
+	public static String alertToDismiss(WebDriver driver) {
+		Alert al = driver.switchTo().alert();
+		String alertmsg = al.getText();
 		al.dismiss();
 		return alertmsg;
 	}
-	public static String alertHandleTwoTimes(WebDriver driver){
-		Alert al=driver.switchTo().alert();
+
+	public static String alertHandleTwoTimes(WebDriver driver) {
+		Alert al = driver.switchTo().alert();
 		al.accept();
-		Alert al1=driver.switchTo().alert();
-		String alertmsg=al1.getText();
+		Alert al1 = driver.switchTo().alert();
+		String alertmsg = al1.getText();
 		al1.accept();
 		return alertmsg;
 	}
-	
-	public static Set<String> getWindowHandleCheckingUrl(WebDriver driver,List<WebElement>element){
+
+	public static Set<String> getWindowHandleCheckingUrl(WebDriver driver, List<WebElement> element) {
 		Set<String> actNewWindowUrls = new HashSet<String>();
-		
+
 		String mainWindow = driver.getWindowHandle();
 		for (WebElement link : element) {
 			link.click();// 5 wins are opened
@@ -103,17 +109,15 @@ public class Utility {
 		return actNewWindowUrls;
 	}
 
-	public static String getSingleWindowHandleVerifyTitle(WebDriver driver,WebElement element){
+	public static String getSingleWindowHandleVerifyTitle(WebDriver driver, WebElement element) {
 		String parent = driver.getWindowHandle();
 		Utility.click(element);
-		
-		String actWindowTitle = null ;
-		Set <String> allWindows = driver.getWindowHandles();
-		
-		for(String child : allWindows)
-		{
-			if(!parent.equalsIgnoreCase(child))
-			{
+
+		String actWindowTitle = null;
+		Set<String> allWindows = driver.getWindowHandles();
+
+		for (String child : allWindows) {
+			if (!parent.equalsIgnoreCase(child)) {
 				driver.switchTo().window(child);
 				actWindowTitle = driver.getTitle();
 				driver.close();
@@ -122,23 +126,21 @@ public class Utility {
 		driver.switchTo().window(parent);
 		return actWindowTitle;
 	}
-	public static ArrayList<String> getWindowHandleVerifyingTitle(WebDriver driver,List<WebElement> element){
-		ArrayList <String>actData = new ArrayList <String>();
+
+	public static ArrayList<String> getWindowHandleVerifyingTitle(WebDriver driver, List<WebElement> element) {
+		ArrayList<String> actData = new ArrayList<String>();
 
 		String parent = driver.getWindowHandle();
-		
-		for (WebElement ele : element)
-		{
+
+		for (WebElement ele : element) {
 			ele.click();
-			
+
 		}
-		
-		Set <String> allWindows = driver.getWindowHandles();
-		
-		for(String child : allWindows)
-		{
-			if(!parent.equalsIgnoreCase(child))
-			{
+
+		Set<String> allWindows = driver.getWindowHandles();
+
+		for (String child : allWindows) {
+			if (!parent.equalsIgnoreCase(child)) {
 				driver.switchTo().window(child);
 				actData.add(driver.getTitle());
 				System.out.println(driver.getTitle());
@@ -148,7 +150,8 @@ public class Utility {
 		driver.switchTo().window(parent);
 		return actData;
 	}
-	public static ArrayList<String> getExpectedNavigation(){
+
+	public static ArrayList<String> getExpectedNavigation() {
 		ArrayList<String> expNavigationMenuText = new ArrayList<String>();
 		expNavigationMenuText.add("Dashboard");
 		expNavigationMenuText.add("Users");
@@ -159,6 +162,3 @@ public class Utility {
 		return expNavigationMenuText;
 	}
 }
-
-
-

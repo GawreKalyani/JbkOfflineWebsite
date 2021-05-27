@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegisterPgObjectRepositary {
+import com.utility.PageBase;
+
+public class RegisterPgObjectRepositary extends PageBase{
 	@FindBy(tagName="b")
 	public WebElement heading1;
 

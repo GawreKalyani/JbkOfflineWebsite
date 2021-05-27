@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class UserPgObjectRepositary {
+import com.utility.PageBase;
+
+public class UserPgObjectRepositary extends PageBase{
 	@FindBy(xpath="//button[text()='Add User']")
 	public WebElement addUserButton;
 	

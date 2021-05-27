@@ -6,7 +6,6 @@ import java.util.Set;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import com.base.Testbase;
 import com.objectRepositary.DashboardPgObjectRepositary;
 import com.utility.ExcelUtility;
 import com.utility.Utility;
@@ -18,6 +17,26 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	public LoginPage clickLogout(){
+		Utility.click(logoutBtn);
+		return new LoginPage(driver);
+	}
+	public UserPage navigateToUserPg(){
+		Utility.click(userBtn);
+		return new UserPage(driver);
+	}
+	public UseFulLinkPage navigateToUseFulLinkPage(){
+		Utility.click(usefulLinkBtn);
+		return new UseFulLinkPage(driver);
+	}
+	public OperatorPg navigateToOperatorPgPg(){
+		Utility.click(operatorBtn);
+		return new OperatorPg(driver);
+	}
+	public DownloadPage navigateToDownloadPg(){
+		Utility.click(downloadsBtn);
+		return new DownloadPage(driver);
+	}
 	public boolean url()
 	{
 		String expectedUrl = "file:///C:/Users/rajat/Downloads/Selenium%20Softwares/Offline%20Website/Offline%20Website/pages/examples/dashboard.html" ; 
@@ -25,12 +44,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actualUrl.equals(expectedUrl))
 		{
-			Testbase.log.info("Url is matched");
+			pageLog().info("Url is matched");
 			return true ;
 		}
 		else
 		{
-			Testbase.log.info("Url is not matched");
+			pageLog().info("Url is not matched");
 			return false ;
 		}
 	}
@@ -41,12 +60,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actualTitle.equals(expectedTitle))
 		{
-			Testbase.log.info("Title is matched");
+			pageLog().info("Title is matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Title not matched");
+			pageLog().info("Title not matched");
 			return false ;
 		}		
 	}
@@ -54,12 +73,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	{	
 		if(image.isDisplayed()==true)
 		{
-			Testbase.log.info("User Image is displayed");
+			pageLog().info("User Image is displayed");
 			return true ;
 		}
 		else
 		{
-			Testbase.log.info("User Image is not displayed");
+			pageLog().info("User Image is not displayed");
 			return false ;
 		}
 	}
@@ -70,12 +89,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actCornerHeading.equals(expCornerHeading))
 		{
-			Testbase.log.info("Corner Heading is matched");
+			pageLog().info("Corner Heading is matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Corner Heading not matched");
+			pageLog().info("Corner Heading not matched");
 			return false ;
 		}
 	}
@@ -148,12 +167,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actMainHeading.equals(expMainHeading))
 		{
-			Testbase.log.info("Main Heading is matched");
+			pageLog().info("Main Heading is matched");
 			return true ;
 		}
 		else 
 		{
-			Testbase.log.info("Main Heading not matched");
+			pageLog().info("Main Heading not matched");
 			return false ;
 		}
 	}
@@ -168,12 +187,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 	
 		if(actTitle.equals(expTitle))
 		{
-			Testbase.log.info("Useful Links Menu is working properly");
+			pageLog().info("Useful Links Menu is working properly");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Useful Links Menu is not working properly");
+			pageLog().info("Useful Links Menu is not working properly");
 			return false ;
 		}
 	}
@@ -187,12 +206,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actTitle.equals(expTitle))
 		{
-			System.out.println("Downloads Menu is working properly");
+			pageLog().info("Downloads Menu is working properly");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Downloads Menu is not working properly");
+			pageLog().info("Downloads Menu is not working properly");
 			return false ;
 		}
 	}
@@ -209,12 +228,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actTitle.equals(expTitle))
 		{
-			System.out.println("Users Menu is working properly");
+			pageLog().info("Users Menu is working properly");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Users Menu is not working properly");
+			pageLog().info("Users Menu is not working properly");
 			return false ;
 		}
 	}
@@ -230,12 +249,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		
 		if(actTitle.equals(expTitle))
 		{
-			System.out.println("Operators Menu is working properly");
+			pageLog().info("Operators Menu is working properly");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("Operators Menu is not working properly");
+			pageLog().info("Operators Menu is not working properly");
 			return false ;
 		}
 	}
@@ -301,7 +320,7 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 		ArrayList<String> actData = new ArrayList<String>();
 		for (WebElement ele : navigator) {
 			String text = ele.getText();
-			System.out.println(text);
+			pageLog().info(text);
 			actData.add(text);
 		}
 		if(actData.equals(expNavigationMenuText))
@@ -315,12 +334,12 @@ public class DashboardPage extends DashboardPgObjectRepositary {
 
 		if(actWindowTitle.equals(expWindowTitle))
 		{
-			System.out.println("New window title is matched");
+			pageLog().info("New window title is matched");
 			return true ;
 		}
 		else 
 		{
-			System.out.println("New window title is not matched");
+			pageLog().info("New window title is not matched");
 			return false ;
 		}
 	}

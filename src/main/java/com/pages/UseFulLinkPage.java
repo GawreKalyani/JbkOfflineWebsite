@@ -71,8 +71,9 @@ WebDriver driver;
 	}
 	public boolean checkHeader() throws Exception {
 		ArrayList<String> actData=Utility.getActualListOfHeadingOfTable(headers);
-		ArrayList<String>exp=ExcelUtility.getTableColumnData("Data.xlsx","usefulheader",0);
-	
+		
+		ArrayList<String>exp=ExcelUtility.readRow("Data.xlsx", "rowUsefulHeader", 0);
+		
 		if(actData.equals(exp))
 			return true;
 		else

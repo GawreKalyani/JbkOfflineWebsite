@@ -16,6 +16,10 @@ public class UserPage extends UserPgObjectRepositary {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	public AddUserPage navigateToAddUserPage(){
+		Utility.click(addUserButton);
+		return new AddUserPage(driver);
+	}
 
 	public boolean getURLOfBrowser() {
 		String exp = "file:///C:/Users/rajat/Downloads/Selenium%20Softwares/Offline%20Website/Offline%20Website/pages/examples/users.html";
