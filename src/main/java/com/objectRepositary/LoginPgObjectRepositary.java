@@ -35,12 +35,6 @@ public class LoginPgObjectRepositary extends PageBase{
 	@FindBy(xpath="//button")
 	public WebElement loginButton;
 	
-	@FindBy(linkText = "LOGOUT")
-	public WebElement logout ;
-	
-	
-
-	
 	@FindBy(partialLinkText="Register")
 	public WebElement registerLink;
 	

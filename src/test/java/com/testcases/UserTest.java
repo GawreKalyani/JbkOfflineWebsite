@@ -192,4 +192,8 @@ public class UserTest extends Testbase {
 		Assert.assertTrue(up.getTitleForAddUserPg());
 		
 	}
+	@Test(priority=34)
+	public void descSortOfNames() {
+		Assert.assertTrue(up.userNamedescSorting());
+	}
 }

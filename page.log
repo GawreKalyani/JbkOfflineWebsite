@@ -435,3 +435,9 @@
 2021-05-27 07:22:43,162  INFO [main] DashboardPage:252 - Operators Menu is working properly
 2021-05-27 07:22:43,576  INFO [main] DashboardPage:209 - Downloads Menu is working properly
 2021-05-27 07:22:50,179  INFO [main] DashboardPage:337 - New window title is matched
+2021-06-06 08:31:09,901  INFO [main] LoginPage:36 - Verifying url of loginPage
+2021-06-06 08:31:09,916  INFO [main] LoginPage:41 - Url is matched
+2021-06-06 08:33:01,995  INFO [main] LoginPage:36 - Verifying url of loginPage
+2021-06-06 08:33:02,001  INFO [main] LoginPage:41 - Url is matched
+2021-06-16 08:04:13,742  INFO [main] LoginPage:36 - Verifying url of loginPage
+2021-06-16 08:04:13,750  INFO [main] LoginPage:41 - Url is matched

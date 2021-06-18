@@ -473,6 +473,27 @@ public class UserPage extends UserPgObjectRepositary {
 			return false;
 	}
 
+	public boolean userNamedescSorting() {
+		ArrayList<String> expData = new ArrayList<String>();
+		expData.add("Sagar");
+		expData.add("Monica");
+		expData.add("Kiran");
+		expData.add("Kimaya");
+		
+	ArrayList<String> actData1 = new ArrayList<String>();
+		for (WebElement ele : names) {
+			String text = ele.getText();
+			actData1.add(text);
+		}
+		Collections.sort(actData1,Collections.reverseOrder());
+		System.out.println(actData1);
+		if (actData1.equals(expData))
+			return true;
+		else
+			return false;
+	}
+
+
 	public boolean getTitleForAddUserPg() {
 
 		Utility.click(addUserButton);

@@ -31,7 +31,7 @@ public class LoginTest extends Testbase {
 	}
 	
 	@Test(priority=1)
-	public void checkUrl(){
+	public void checkUrl(){					
 		testLog().info("verifying url of browser");
 		Assert.assertTrue(lp.getURLOfBrowser());
 	}

@@ -601,3 +601,38 @@
 2021-05-27 07:22:32,520  INFO [main] UserTest:58 - maximizing browser window
 2021-05-27 07:22:34,009  INFO [main] LoginTest:35 - verifying url of browser
 2021-05-27 07:23:19,943  INFO [main] DownloadTest:31 - verifying url of downloadPage
+2021-06-06 08:30:24,825  INFO [main] LoginTest:32 - initializing browser
+2021-06-06 08:30:24,830  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-06 08:30:27,641  INFO [main] LoginTest:54 - JBK Offline application is launched
+2021-06-06 08:30:28,197  INFO [main] LoginTest:58 - maximizing browser window
+2021-06-06 08:30:28,426  INFO [main] LoginTest:35 - verifying url of browser
+2021-06-06 08:30:51,735  INFO [main] LoginTest:32 - initializing browser
+2021-06-06 08:30:51,739  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-06 08:30:53,909  INFO [main] LoginTest:54 - JBK Offline application is launched
+2021-06-06 08:30:54,443  INFO [main] LoginTest:58 - maximizing browser window
+2021-06-06 08:30:54,664  INFO [main] LoginTest:35 - verifying url of browser
+2021-06-06 08:32:16,003  INFO [main] LoginTest:32 - initializing browser
+2021-06-06 08:32:16,007  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-06 08:32:18,048  INFO [main] LoginTest:54 - JBK Offline application is launched
+2021-06-06 08:32:18,998  INFO [main] LoginTest:58 - maximizing browser window
+2021-06-06 08:32:19,212  INFO [main] LoginTest:35 - verifying url of browser
+2021-06-06 08:32:58,539  INFO [main] LoginTest:32 - initializing browser
+2021-06-06 08:32:58,545  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-06 08:33:00,671  INFO [main] LoginTest:54 - JBK Offline application is launched
+2021-06-06 08:33:01,777  INFO [main] LoginTest:58 - maximizing browser window
+2021-06-06 08:33:01,993  INFO [main] LoginTest:35 - verifying url of browser
+2021-06-16 07:57:43,115  INFO [main] LoginTest:32 - initializing browser
+2021-06-16 07:57:43,123  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-16 07:57:48,042  INFO [main] LoginTest:54 - JBK Offline application is launched
+2021-06-16 07:57:48,698  INFO [main] LoginTest:58 - maximizing browser window
+2021-06-16 08:02:52,845  INFO [main] LoginTest:32 - initializing browser
+2021-06-16 08:03:00,108  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-16 08:04:10,978  INFO [main] LoginTest:32 - initializing browser
+2021-06-16 08:04:10,982  INFO [main] LoginTest:36 - chrome browser opened
+2021-06-16 08:04:12,922  INFO [main] LoginTest:54 - JBK Offline application is launched
+2021-06-16 08:04:13,535  INFO [main] LoginTest:58 - maximizing browser window
+2021-06-16 08:04:13,729  INFO [main] LoginTest:35 - verifying url of browser
+2021-06-18 09:54:56,262  INFO [main] UserTest:32 - initializing browser
+2021-06-18 09:54:56,270  INFO [main] UserTest:36 - chrome browser opened
+2021-06-18 09:54:59,712  INFO [main] UserTest:54 - JBK Offline application is launched
+2021-06-18 09:55:00,309  INFO [main] UserTest:58 - maximizing browser window
