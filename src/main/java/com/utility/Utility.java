@@ -7,7 +7,7 @@ import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+
 
 public class Utility {
 	WebDriver driver;
@@ -19,11 +19,7 @@ public class Utility {
 	public static void sendkeys(WebElement element, String datatoEnter) {
 		element.sendKeys(datatoEnter);
 	}
-
-	public static void selectBy(WebElement element, String text) {
-		Select sel = new Select(element);
-		sel.selectByVisibleText(text);
-	}
+	
 
 	public static ArrayList<String> getActualListOfHeadingOfTable(List<WebElement> headers) {
 		ArrayList<String> actHead = new ArrayList<String>();

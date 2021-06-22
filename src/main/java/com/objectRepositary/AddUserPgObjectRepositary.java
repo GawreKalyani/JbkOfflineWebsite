@@ -27,11 +27,8 @@ public class AddUserPgObjectRepositary extends PageBase {
 	@FindBy(id="password")
 	public WebElement pass;
 	
-	@FindBy(xpath="//input[@value='Male']")
-	public WebElement maleradio;
-
-	@FindBy(xpath="//input[@value='Female']")
-	public WebElement femaleradio;
+	@FindBy(xpath="//input[@name='gender']")
+	public List<WebElement>radioBtns;
 	
 	@FindBy(xpath="//select")
 	public WebElement selectstate;

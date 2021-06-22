@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import com.objectRepositary.AddUserPgObjectRepositary;
 import com.utility.ExcelUtility;
+import com.utility.RadioButtonUtility;
+import com.utility.SelectUtility;
 import com.utility.Utility;
 
 public class AddUserPage extends AddUserPgObjectRepositary{
@@ -44,9 +46,9 @@ WebDriver driver;
 		Utility.sendkeys(email,"alihan@gmail.com");
 		Utility.sendkeys(course,"Selenium");
 		
-		Utility.click(maleradio); //radio button
+		RadioButtonUtility.clickRadioButton(radioBtns, "Male");
 		
-		Utility.selectBy(selectstate,"Maharashtra");
+		SelectUtility.selectBy(selectstate,"Maharashtra");
 		
 		Utility.sendkeys(pass, "jhh");
 		Utility.click(submitbutton);
