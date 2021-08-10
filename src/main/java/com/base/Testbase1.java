@@ -23,6 +23,7 @@ public class Testbase1 {
 			return prop.getProperty(key);
 		}
 	 public WebDriver initialization(){
+		 
 			log.info("initializing browser");
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");	
 		driver=new ChromeDriver();

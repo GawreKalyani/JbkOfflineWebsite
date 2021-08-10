@@ -1,6 +1,9 @@
 package com.pages;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -262,4 +265,29 @@ public class DownloadPage extends DownloadPgObjectRepositary {
 		else 	
 			return false ;
 	}
+
+
+	public boolean getVendorAndVersionFor32bit() throws Exception {
+		HashMap<String,List<String>>actualhm=new HashMap<>();
+		
+		for (int i = 0; i < vendors.size(); i++) {
+			String bit=bit32s.get(i).getText();
+			String version=versions.get(i).getText();
+			String vendor=vendors.get(i).getText();
+			
+			List<String>al=new ArrayList<>();
+			al.add(vendor);
+			al.add(version);
+			actualhm.put(bit, al);
+			System.out.println("Actual:"+actualhm);
+		}
+		HashMap<String,List<String>>exphm=ExcelUtility.readUnameAndPass("Data.xlsx", "downCol3", 0, 1, 2);
+		System.out.println("Expected"+exphm);
+		if(actualhm.equals(exphm))
+			return true ;
+		else 	
+			return false ;
+	
+	}
+	
 }

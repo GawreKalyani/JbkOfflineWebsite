@@ -3,6 +3,8 @@ package com.pages;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -418,4 +420,18 @@ public class OperatorPg extends OperatorPgObjectRepositary{
 		else 	
 			return false ;
 	}
+	public boolean getUserNmForWhatsApp() throws Exception {
+		HashMap<String,String>exphm=ExcelUtility.readUnameAndPass("Data.xlsx","whatsappOnly", 0, 1);
+		pageLog().info("Exp:"+exphm);
+		Map<String, String>actualhm=Utility.getActualDataUsingMap("Whats App Only", personNames, preferWay);
+		pageLog().info("Acr:"+actualhm);
+	
+	if(actualhm.equals(exphm))
+			return true ;
+		else 	
+			return false ;
+	}
+
+		
+	
 }

@@ -150,4 +150,9 @@ public class OperatorTest extends Testbase {
 	{
 		Assert.assertTrue(op.CompleteOperatorsTable());
 	}
+	@Test(priority=26)  //here expected is clear
+	public void verifyUsernameForWhatsAppOnlyUsingHashMap() throws Exception{
+		Assert.assertTrue(op.getUserNmForWhatsApp());
+	}
+	
 }

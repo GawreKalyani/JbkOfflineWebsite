@@ -1,8 +1,10 @@
 package com.utility;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +21,19 @@ public class Utility {
 	public static void sendkeys(WebElement element, String datatoEnter) {
 		element.sendKeys(datatoEnter);
 	}
-	
+	public static Map<String, String> getActualDataUsingMap(String text,List<WebElement>keys,List<WebElement>keyValue){
+		int i=0;
+		Map<String,String>actData=new HashMap<>();
+		for (WebElement webElement : keyValue) {
+			String k=webElement.getText();
+			if(k.equals(text))
+			{	String name=keys.get(i).getText();
+			  actData.put(name,k);
+			}
+			i++;
+		}
+		return actData;
+	}
 
 	public static ArrayList<String> getActualListOfHeadingOfTable(List<WebElement> headers) {
 		ArrayList<String> actHead = new ArrayList<String>();

@@ -128,4 +128,9 @@ public class DownloadTest extends Testbase {
 	{
 		Assert.assertTrue(dwp.completeDownloadsTable());
 	}
+	@Test(priority=21)
+	public void verifyVendorAndVersionFor_32bit() throws Exception{
+		
+		Assert.assertTrue(dwp.getVendorAndVersionFor32bit());
+	}
 }

@@ -1,0 +1,43 @@
+http://javabykiran.in/Other/thbees/
+User stories
+
+std. template: 
+login as <role> want to perform <Action> 
+then <output of result /expectation>
+
+1. Register as <customer> when enters all the details then able to see my account 
+
+Register as <customer> when enters all the details then able to delete/update/add new address/make changes in personal details
+user<login> as customer  should be able to signout his account
+
+2. user <login> as a customer and able to select any product then able to see in my orders/cart
+
+3. user login as cust. and add any payment method(card) then able to see saved cards
+
+4. user login as cust. and able to set limit of price for product then all products are visible in that price range
+
+5) user login as customer and have added product into  cart,then can delete the product from cart 
+
+6)User login as customer and placed an order then able to see  status of his order.
+
+7)user login as customer and can select the quantity of product then can increase/decrease the quantity of product
+	user login as customer and select the product then minimum quantity of product should be 1
+
+8)user login as cust.and customer getting any problem then customer service must be available  (Contact us option on footer of HomePg)
+
+9) user login as cust. and wants to purchase any  product then price of product must be displayed
+
+10)user login as cust. and select any product then more info of the product should be available.
+
+11. User login as cust. and check all recent post and then compare the product
+	user login as cust. and likes any recent post ,then can share on facebook,Tweet.
+
+12)user login as cust. and can subscribe for newsletter then latest product news notification will be available on your gmail
+
+
+13)user login as cust. and select any product then different size images are available
+14)user login as cust. and wants to purchase candle then get  list of different size for candles
+15)user login as cust. and wants to purchase Soap then variety of soap is obtained              (DropDown Product:Body Wash,Shampoo,Conditioner)
+16)user login as cust. and wants to purchase Cofee then different flavour list must be displayed  (DropDown Flavour:Hair of the Dog,Busy Bean,Mean Bean
+17) user login as cust. and select product TinCup/Mug then different colors of the product should be displayed
+

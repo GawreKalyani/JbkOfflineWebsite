@@ -3,16 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.testcases.AddUserTest">
+      <class name="com.testcases.DownloadTest">
         <methods>
-          <include name="verifyStateListThroughExcel"/>
-          <include name="addUser"/>
           <include name="tearDown"/>
-          <include name="verifyStateList"/>
-          <include name="checkLabels"/>
+          <include name="verifyVendorAndVersionFor_32bit"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.testcases.AddUserTest -->
+      </class> <!-- com.testcases.DownloadTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

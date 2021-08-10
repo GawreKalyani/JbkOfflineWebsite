@@ -1,0 +1,127 @@
+ git init
+git add .             //Enter
+git commit -m "extent report code"       //"messages to pass"
+git config --global user.email yogitagawre@gmail.com
+git config --global user.name GawreKalyani
+git commit -m "extent report code"       //Enter
+git remote add origin https://github.com/GawreKalyani/ExtentReportProject.git  //origin is variable
+git push -u origin master                //Enter   //Kal23zoom //GawreKalyani //
+					//master is branchName
+
+//updating previous project .git folder is already present so no need to init ,otherwise git init
+git add .
+git status        //which files have changes that are added
+git commit -m "updated opertaor"
+git remote add origin https://github.com/GawreKalyani/ExtentReportProject.git 
+git push -u origin master
+git log         //to know all commit done
+
+//process for adding any project
+Browser-gitHub.com---+--New Repsitary nm as TestingProject --create Repositary
+https://github.com/GawreKalyani/TestingProject.git 
+
+DemoProject(Nm of Proj) right click mouse--Properties--arrowSymbol pe Click--Open DemoProj--
+RightClickMouse---Git Base here----git init(Empty folfer .git is created for project)
+Eclipse--Window--Show View--Others--git repositary--Add repositary click--select
+ThisPc-(Path for DemoProject)--select .git Folder of DemoProject--Next--Finish--Copy http and paste 
+it in git repositary(In git Rep--there is project and path of repo)
+DemoProject RightClick--Team--add to index
+DemoProject RightClick--Team--commit    msg=updating test case--commit and push Btn click
+
+//Taking Project from git(pull command) your project  Name Project1 is empty
+//Project1 Right click--properties---All project--Open Project1--Git bash there
+git init              //Nothing to add as it is empty so no need to commit also
+git remote add <var> https://github.com/GawreKalyani/TestingProject.git 
+git pull <var> <branch>
+//TestingProject comes to your eclipse  now(Project1 replaced by TestingProject)
+
+//To change Branch
+git checkout -b '<new branchName>'            //say  git checkout -b 'april20'
+git push -u origin april20
+
+
+//companys git(shortcut)
+1)  Browser-gitHub.com---"+"--New Repsitary nm as "TestingProject" --create Repositary
+	https://github.com/GawreKalyani/TestingProject.git  copy this url
+2)Eclipse:Windows--Show View--Other---Git Repositaries ---------RightClick Mouse---Option Paste the new repos. path/url
+ok---next---next
+3)Eclipse--ProjectTo pass on git say "RestAssured"--Right Click on project---Team--Share project
+4)Dialog box appears,Repositary DropDown ----Select git url you made from that dropDown----Then click on Finish button
+5)-Right Click on project---Team--Add to index
+6)Right Click on project---Team--Commit----message to type----then click on CommitAndPush buttton
+7)Dialog box comes,,Click on "Next" then pass GitsUsername and password
+8)Username=GawreKalyani  pass:Kal23zoom then Store secure checkbox ko right mark-- Check git url there(if not,select from dropdown)
+9)Two Ques to write with answer say what is your country name     India
+	what is your city name      Nagpur-------Now Click on Ok button-----Finish
+
+//how to import project from git
+1)Eclipse Left side ----RightClickMouse--Import--Import---Git--Project from git--Clone Uri--then pass git url--Next---Next
+
+
+
+//Jenkins Installation
+Brow   www.jenkins.io        Download Jenkins 2.290 for     Windows
+After Download Complition  Show in folder --Double Click jenkins.msi 
+Dialog box --Next--Next--First Radio ko select karo that has Run System as localSystem--Next---Test Port ko click karo (Green RightMark)Port 8080---Next--Next--Install--Finish
+Brow     localhost:8080
+Window Start Search me type-- Services--Open--Jenkins(Double click)--Running "Stop" stop pe click--Startup Type: Automatic ko change to "Manual" from dropDown---Then Ok--install allow
+This Pc--Program Files--Jenkins--Open---Is path ko Clt+A karo, Type cmd Type  java -jar Jenkins.war Enter-----------Password Comes there Copy the Password
+Brow     localhost:8080 Refresh Adminstrator Password:Paste the password came in cmd--Continue Btn
+Then SetUp wizard[Jenkins] window title comes---Customized Jenkins---Select"Install Suggested Plugin" --After Downloading--Dialog Box Appears
+Create First Admin User : Username=GawreKalyani Password:Kal23zoom  FullNm=Kalyani Gawre   Email:yogitagawre@gmail.com---Save and Continue BTn click--Save&FinishBtn--start Jenkins
+Jenkins Dashboard   appears Welcome to Jenkins
+Brow  maven download--Then  "Binary Zip archieve"   me jo "Link" hai use click Karo  which is "apache-maven-3-8-1 bin zip"--Show in folder--Extract File--Windows(ssd C)--ok
+This Pc--C--apache maven 3.8.1 folder founds
+Jenkin Dashboard-Pg-  "Manage Jenkins"  Click--System Configuration  "Manage Plugins" click---
+Available Btn Click --Search bar me maven type karo Enter then lots of options checkboxes appears--Select all checkbox stating with Maven word --thenClick--InstallWithoutRestart
+go back to top click
+Jenkins Dashboard Pg "Manage Jenkins"  Click--"Global Tool Configuration" --Add JDK--click--Name:JAVA_HOME---Uncheck box install automatically(No right mark)--give path of jdk
+C:\Program Files\Java\jdk 1.8.0_144 Now Click-- Maven Btn Name:M2_Home --Uncheck(install automaticaly)--give path of maven C:\apache-maven.3.8.1--Click On"Apply" and "Save"
+
+
+//jenkins login
+this pc/ProgramFiles/Jenkins click  open cmd  write   java -jar Jenkins.war
+then in chrome browser localhost:8080 
+put Username=GawreKalyani  password=Kal23zoom
+Then Dashboard pg of jenkins opens.
+
+//change portno of jenkins
+this pc/ProgramFiles/Jenkins click  open cmd  write   java -jar jenkins.war --httpPort=9090
+
+
+//Jenkins Running Local Project (Project present in eclipse)
+New items--click --Enter an item name:AnyNm say FirstProj --select Maven Project--Click"Ok
+Window comes    --select  "Source Code Management "   select None(checkbox)
+		--select  "Build"  Root Pom:Path of project such as D:\selenium\MavenPageObjectModel\pom.xml-----Goals and option:  clean test
+ 		--select "Build Trigger" select checkbox"Build Periodically" schedule "?" click     box 30 11 2 5 *  --Aplly and Save
+At specified Time and date It runs (click on buffering) shows console
+
+//Jenkins Running Git project
+ Jenkins Dashboard------New items--click --Enter an item name:AnyNm say GitIntegrationProj --select Maven Project--Click"Ok
+ Window comes    --select  "Source Code Management "  select "git"(checkbox)--Give Url of Git-https://github.com/GawreKalyani/TestingProject.git
+	---------select "Build"  Root POm:pom.xml    Goals: clean test	
+------------------select "Build Trigger" select checkbox"Build Periodically" schedule "?" click     box 30 11 2 5 *  --Aplly and Save	
+ specified Time and date It runs (click on buffering) shows console
+
+
+//Run without time specification
+Select proj--Build Now(L.H.s)---"#1"(L.H.s) click there---ConsoleOutput(L.H.s)
+
+
+//https://github.com/GawreKalyani/JbkOfflineWebsite.git
+
+Mantise Bug Tracker:
+http://ingecnotechnologies.com/other/Mantis/login_page.php
+Username:yogitagawre@gmail.com
+Password:1234
+
+Git/Jenkins
+UserName:GawreKalyani
+Password:Kal23zoom
+
+GitHub different account
+https://github.com/akshay1120/
+https://github.com/ajitbhapse/SeleniumPageFactory
+https://github.com/mangesh1404/KeywordFramework_8May.git
+
+Github:is version control tool used to store the data.its a remote repositary.
